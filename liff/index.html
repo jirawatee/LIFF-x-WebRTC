@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>Open Camera using WebRTC</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="camera">
+      <video id="stream" width="100%" height="450"></video>
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <canvas id="canvas" width="600" height="450"></canvas>
+    <div id="snapshot">
+      <img src="https://placehold.jp/dddddd/ffffff/600x450.png?text=Preview%20Image" id="img1" width="100%">
+    </div>
+
+    <div class="button-group">
+      <button id="btnStream" type="button" class="button">Take a photo</button>
+      <label id="picture" for="file" class="label custom-file-upload">Browse an image</label>
+      <input id="file" name="file" type="file" accept="image/*">
+    </div>
+  </div>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

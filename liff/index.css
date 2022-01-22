@@ -1,0 +1,110 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  padding: 16px;
+}
+
+#canvas, #camera, input[type=file] {
+  display: none
+}
+
+.label {
+  display: inline-block;
+  margin: 4px
+}
+
+.button {
+  width: 100%;
+  background-color: #06c755;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  height: 58px;
+}
+
+.button-group button {
+  width: 49.4%
+}
+
+.disable {
+  background-color: #efefef;
+  color: #777;
+}
+
+#stream, #snapshot img, #canvas {
+  width: 100%;
+  height: 360px;
+}
+
+.custom-file-upload {
+  width: 49.4%;
+  border-radius: 4px;
+  background-color: #06c755;
+  padding: 20px 0;
+  cursor: pointer;
+  margin: 8px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center
+}
+
+#camera {
+  position: relative;
+}
+
+#camera div {
+  cursor: pointer;
+}
+
+#camera span {
+  position: absolute;
+  border-radius: 50%;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#camera span:first-of-type {
+  background: white;
+  width: 80px;
+  height: 80px;
+}
+
+#camera span:nth-of-type(2) {
+  background: black;
+  bottom: 24px;
+  width: 72px;
+  height: 72px;
+}
+
+#camera span:last-of-type {
+  background: white;
+  bottom: 28px;
+  width: 64px;
+  height: 64px;
+}
+
+@media only screen and (min-width: 960px) {
+  #container {
+    width: 36%;
+    margin: 0 auto
+  }
+
+  #stream, #snapshot img, #canvas {
+    height: 450px;
+  }
+}
