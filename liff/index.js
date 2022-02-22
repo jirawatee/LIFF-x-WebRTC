@@ -35,6 +35,7 @@ const captureSnapshot = () => {
     var ctx = canvas.getContext('2d')
     ctx.drawImage(stream, 0, 0, canvas.width, canvas.height)
     previewImage.src = canvas.toDataURL("image/png")
+    ocr(canvas.toDataURL("image/png"))
   }
 }
 
@@ -52,6 +53,7 @@ const getBase64 = (file) => {
   reader.readAsDataURL(file)
   reader.onload = function () {
     previewImage.src = reader.result
+    ocr(reader.result)
   }
   reader.onerror = function (error) {
     console.log("Error: ", error)
@@ -89,3 +91,26 @@ btnCapture.onclick = () => {
   stopStreaming()
 }
 // END EVENT LISTENERS
+
+
+// BEGIN FIREBASE
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-functions.js";
+
+const firebaseConfig = {
+  apiKey: "### FIREBASE API KEY ###",
+  authDomain: "### FIREBASE AUTH DOMAIN ###",
+  projectId: "### CLOUD FUNCTIONS PROJECT ID ###"
+};
+const app = initializeApp(firebaseConfig);
+const functions = getFunctions(app);
+
+function ocr(base64encoded) {
+  const myCallable = httpsCallable(functions, 'myCallable');
+  myCallable({ base64: base64encoded }).then((result) => {
+    console.log(result.data);
+  }).catch((error) => {
+    console.error(error.code, error.message);
+  });
+}
+// END FIREBASE
