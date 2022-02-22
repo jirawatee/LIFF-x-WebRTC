@@ -1,13 +1,25 @@
 # Logs
 logs
 *.log
-npm-debug.log*
+*/npm-debug.log
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+firebase-debug.log*
+firebase-debug.*.log*
+**/firebase-debug.log
+**/ui-debug.log
+**/database-debug.log
+**/pubsub-debug.log
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Firebase cache
+**/.firebase
+
+# Firebase config
+**/.firebaserc
 
 # Runtime data
 pids
@@ -25,7 +37,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
 # Bower dependency directory (https://bower.io/)
@@ -34,12 +46,12 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
+# Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
 # Dependency directories
-node_modules/
-jspm_packages/
+**/node_modules/*
+**/jspm_packages/*
 
 # TypeScript v1 declaration files
 typings/
@@ -67,6 +79,7 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+yarn.lock
 
 # dotenv environment variables file
 .env
@@ -84,9 +97,6 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and *not* Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
 
 # vuepress build output
 .vuepress/dist
@@ -102,3 +112,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+.idea
+**/.runtimeconfig.json
+**/package-lock.json
+**/tsconfig-compile.json
+service-account.json
+service-account-credentials.json
+
+.DS_Store
+Thumbs.db
